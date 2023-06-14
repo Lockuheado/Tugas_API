@@ -1,3 +1,4 @@
+import 'package:api/splashscreen.dart';
 import 'package:api/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ITG Consume API',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
       ),
       routeInformationParser: Approutes.goRouter.routeInformationParser,
       routeInformationProvider: Approutes.goRouter.routeInformationProvider,

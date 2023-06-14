@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:api/models/post.dart';
 import 'package:api/utils/endpoint.dart';
 import 'package:api/utils/request_helper.dart';

@@ -1,10 +1,8 @@
 import 'package:api/cotrollers/post_controller.dart';
 import 'package:api/models/comment.dart' as c;
 import 'package:flutter/material.dart';
-
 import 'package:api/models/post.dart';
 import 'package:api/models/photo.dart';
-import 'package:api/models/album.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key, required this.post});
@@ -99,51 +97,8 @@ class _PostPageState extends State<PostPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Text(
-                "Album",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               SizedBox(
                 height: size.height * 0.01,
-              ),
-              Expanded(
-                child: FutureBuilder<List<Album>>(
-                  future: postController.fetchAlbums(widget.post.id),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      if (snapshot.data!.isNotEmpty) {
-                        List<Album> albums = snapshot.data!;
-                        return ListView.separated(
-                          itemBuilder: (context, index) {
-                            return Card(
-                              child: ListTile(
-                                title: Text(albums[index].title),
-                              ),
-                            );
-                          },
-                          separatorBuilder: (context, index) {
-                            return const SizedBox(
-                              height: 5,
-                            );
-                          },
-                          itemCount: albums.length,
-                        );
-                      } else {
-                        return const Text("Belum ada album");
-                      }
-                    } else if (snapshot.connectionState ==
-                        ConnectionState.waiting) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else {
-                      return const Text("Error");
-                    }
-                  },
-                ),
               ),
               const SizedBox(height: 20),
               const Text(

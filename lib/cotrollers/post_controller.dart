@@ -1,11 +1,8 @@
 import 'dart:convert';
-
 import 'dart:io';
-
 import 'package:api/models/comment.dart';
 import 'package:api/models/post.dart';
 import 'package:api/services/post_services.dart';
-import 'package:api/models/album.dart';
 import 'package:api/models/photo.dart';
 
 class PostController {
@@ -35,21 +32,6 @@ class PostController {
       }
     });
   }
-
-  Future<List<Album>> fetchAlbums(int id) async {
-    return await PostServices().fetchAlbums(id).then((res) {
-      if (res.statusCode == HttpStatus.ok) {
-        var jsonData = jsonDecode(res.body);
-        return List.generate(
-          jsonData.length,
-          (index) => Album.fromMap(jsonData[index]),
-        );
-      } else {
-        throw Exception();
-      }
-    });
-  }
-
   Future<List<Photo>> fetchPhotos(int id) async {
     return await PostServices().fetchPhotos(id).then((res) {
       if (res.statusCode == HttpStatus.ok) {
