@@ -81,7 +81,5 @@ class PostServices {
     );
   }
 
-  fetchAlbums(int id) {}
-
   fetchPhotos(int id) {}
 }
